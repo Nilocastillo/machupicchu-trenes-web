@@ -29,18 +29,18 @@ export interface HorarioItem {
 export interface Servicios {
   id: serviciosId;
   name: serviciosName;
-  title?: string;
-  description: string;
+  title: string;
+  content: string;
   label: string;
-  includes?: {
+  includes: {
     title: string;
     description: string;
   }[];
-  horarios: {
+  horarios?: {
     ida: HorarioItem[];
     retorno: HorarioItem[];
   };
-  galeria?: string[];
+  galeria: string[];
   background: string;
   styleclass: string;
   imagen: {

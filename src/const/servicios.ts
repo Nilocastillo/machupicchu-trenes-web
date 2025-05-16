@@ -15,7 +15,7 @@ export const SERVICIOS: Servicios[] = [
     id: "the-private",
     name: "The Private",
     title: "El único tren privado a Machu Picchu",
-    description:
+    content:
       "Embárcate en un viaje verdaderamente exclusivo rumbo a la ciudadela de Machu Picchu. Disfruta de impresionantes vistas del Valle Sagrado de los Incas mientras saboreas un menú gourmet de tres tiempos, acompañado de un maridaje de bebidas y entretenimiento en vivo a bordo. Una experiencia diseñada para los viajeros más exigentes.",
     horarios: {
       ida: [
@@ -103,7 +103,7 @@ export const SERVICIOS: Servicios[] = [
     name: "The Firstclass",
     title:
       "Disfruta del lujo, la comodidad y la elegancia a bordo de The First Class",
-    description:
+    content:
       "Vive una experiencia inolvidable a bordo de The First Class, donde el lujo y la comodidad se combinan con la esencia de la cultura peruana. Disfruta de un servicio personalizado, música en vivo, un delicioso cóctel de bienvenida, menú gourmet de tres tiempos elaborado con productos andinos como quinua, aguaymanto y trucha, además de un exclusivo bar con una amplia selección de bebidas. Contempla los majestuosos paisajes del Valle Sagrado desde nuestro balcón panorámico mientras nuestro equipo a bordo cuida cada detalle para brindarte un viaje único, lleno de sabor, color y tradición.",
 
     horarios: {
@@ -176,7 +176,7 @@ export const SERVICIOS: Servicios[] = [
     id: "the-360",
     name: "The 360",
     title: "Vagón observatorio al aire libre a borde del tren The 360°",
-    description:
+    content:
       "Vive una experiencia única a bordo de The 360° Machu Picchu Train. Con ventanas panorámicas más amplias y un exclusivo observatorio al aire libre, este tren te ofrece vistas incomparables de los majestuosos paisajes andinos. Además, disfruta de una variedad de bebidas frías y calientes preparadas con jugos de frutas y hierbas andinas, y una deliciosa oferta de platos gourmet elaborados con productos autóctonos del Valle Sagrado de los Incas. Descubre todo sobre Perú a través de nuestra app a bordo y haz de tu viaje una experiencia inolvidable.",
 
     horarios: {
@@ -264,7 +264,7 @@ export const SERVICIOS: Servicios[] = [
     name: "The Voyager",
     title:
       "Disfruta de cómodos asientos y excelente servicio a bordo de The Voyager",
-    description:
+    content:
       "Viaja cómodamente a Machu Picchu a bordo de The Voyager, un tren pensado para brindarte confort, relajación y paisajes inolvidables. Sus asientos ergonómicos, música ambiental andina y amplias ventanas panorámicas te permitirán disfrutar plenamente de la ruta, mientras contemplas picos nevados, ríos serpenteantes y el majestuoso Valle Sagrado. Nuestro cálido equipo a bordo se encargará de que vivas una experiencia excepcional, complementada con una carta de cócteles y jugos elaborados con frutas frescas y hierbas nativas. Además, podrás deleitarte con un menú gourmet inspirado en ingredientes tradicionales del Valle Sagrado de los Incas. Todo lo necesario para hacer de tu viaje una aventura única.",
 
     horarios: {
@@ -412,7 +412,7 @@ export const SERVICIOS: Servicios[] = [
     id: "hiram-bingham",
     name: "Hiram Bingham",
     title: "Un viaje de lujo a Machu Picchu a bordo del Hiram Bingham",
-    description:
+    content:
       "Comienza tu aventura de lujo a bordo del tren Hiram Bingham, que parte de Cusco por la mañana y atraviesa paisajes cambiantes de la sierra peruana mientras disfrutas de un exquisito brunch. Tras ascender por una empinada pendiente a las afueras de Cusco, el tren desciende hacia el Valle Sagrado, recorriendo coloridos pueblos y campos verdes al pie de los Andes. Este exclusivo servicio cuenta con dos coches para pasajeros, un coche bar y un coche cocina. Su diseño combina elegancia y confort: mesas extra anchas de casi tres metros, asientos 30 cm más amplios que el promedio, y espacios considerados entre los más cómodos del mundo. Todo está pensado para que vivas una experiencia unica e inolvidable rumbo a la maravilla del mundo Machu Picchu.",
 
     horarios: {
@@ -505,7 +505,7 @@ export const SERVICIOS: Servicios[] = [
     name: "Vistadome Observatory",
     title:
       "Vive un exclusivo viaje colmado de vistas asombrosas a bordo del Vistadome Observatory",
-    description:
+    content:
       "Embárcate en una travesía mágica hacia Machu Picchu a bordo del tren Vistadome Observatory, donde cada instante te conecta con la majestuosidad de los Andes. Disfruta de vistas panorámicas espectaculares desde coches con ventanas amplias, celebra la riqueza cultural del Perú en el coche bar y déjate envolver por danzas y melodías andinas en vivo. Cada detalle ha sido cuidadosamente diseñado para brindarte una experiencia inmersiva e inolvidable en el corazón del mundo andino.",
 
     horarios: {
@@ -629,7 +629,7 @@ export const SERVICIOS: Servicios[] = [
     name: "Vistadome",
     title:
       "Un sorprendente viaje panorámico que despierta tus sentidos a bordo del Vistadome",
-    description:
+    content:
       "Descubre la forma más cómoda y rápida de llegar a Machu Picchu con el tren Vistadome de PeruRail. A bordo, disfrutarás de coches recientemente renovados, equipados con ventanas panorámicas de vidrio que ofrecen vistas impresionantes de los paisajes andinos. Siéntete parte del entorno mientras saboreas deliciosos bocadillos y bebidas frías o calientes, en un trayecto lleno de oportunidades para capturar fotografías espectaculares. Cada detalle está diseñado para ofrecerte una experiencia visual, cultural y gastronómica inolvidable.",
 
     horarios: {
@@ -744,7 +744,7 @@ export const SERVICIOS: Servicios[] = [
     name: "Expedition",
     title:
       "Explora la verdadera aventura hacia Machu Picchu a bordo del Expedition",
-    description:
+    content:
       "El tren Expedition de PeruRail ha sido diseñado para viajeros con espíritu aventurero que no quieren renunciar a la comodidad ni a la seguridad. Sus interiores, decorados con tapices de inspiración incaico, ofrecen un ambiente local auténtico. Disfruta de asientos cómodos y amplios espacios para mochilas, perfectos para quienes se preparan para explorar Machu Picchu. Durante el trayecto, podrás adquirir bebidas y snacks a un costo adicional. Una experiencia práctica, accesible y cultural, ideal para recorrer los Andes rumbo a la ciudadela inca.",
 
     horarios: {

@@ -29,7 +29,33 @@ const {
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Trenes a Machupicchu</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {robots && <meta name="robots" content={robots} />}
+
+    <meta property="og:url" content="https://www.trenesamachupicchu.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Servicio de tranes a Machu Picchu" />
+    <meta
+      property="og:description"
+      content="Trenes a Machu Picchu horarios, precios y reservas online"
+    />
+    <meta
+      property="og:image"
+      content="https://www.trenesamachupicchu.com/og.jpg"
+    />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Servicio de trenes a Machu Picchu" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Mapitravel" />
+    <meta name="twitter:creator" content="@Mapitravel" />
+    <meta name="twitter:title" content="Servicio de trenes a Machu Picchu" />
+    <meta
+      name="twitter:description"
+      content="Trenes a Machu Picchu horarios, precios y reservas online"
+    />
+
     <ClientRouter />
   </head>
   <body>
