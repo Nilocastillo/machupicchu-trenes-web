@@ -7,6 +7,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "static", // opcional pero recomendable para claridad
   vite: {
     plugins: [tailwindcss()],
   },

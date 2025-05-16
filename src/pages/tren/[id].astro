@@ -1,20 +1,29 @@
 ---
-import { SERVICIOS } from "@/const/servicios";
+import { SERVICIOS } from "@/const/servicios"; // Asumo que "SERVICIOS" tiene todos los trenes
 import Layout from "@/layouts/Layout.astro";
 import IncludeGrid from "@/components/IncludeGrid.astro";
 import HorarioTren from "@/components/HorarioTren.astro";
 import GaleriaTren from "@/components/Galeria.astro";
 import { fixedTitles } from "@/const/pageTitles";
 
-const { id } = Astro.params; // Solo el id viene del parámetro de ruta
-const tren = SERVICIOS.find((tren) => tren.id === id);
-if (!tren) return Astro.redirect("/404");
+// Define getStaticPaths() para que Astro sepa qué páginas generar
+export async function getStaticPaths() {
+  const paths = SERVICIOS.map((tren) => ({
+    params: { id: tren.id }, // El id de cada tren
+  }));
+
+  return paths;
+}
+
+const { id } = Astro.params; // Obtienes el id de la ruta dinámica
+const tren = SERVICIOS.find((tren) => tren.id === id); // Buscar tren según id
+
+if (!tren) return Astro.redirect("/404"); // Si no se encuentra el tren, redirigir a 404
 
 const description = `Información sobre el tren ${tren.name} hacia Machu Picchu. ${tren.content.substring(0, 120)}${tren.content.length > 120 ? "..." : ""}`;
 const canonical = `https://www.trenesamachupicchu.com/tren/${id}`;
 
 const { title, name, imagen, content } = tren;
-export const prerender = false;
 ---
 
 <Layout
@@ -83,15 +92,10 @@ export const prerender = false;
       >
         Conoce nuestra galeria
       </h2>
-      <p class="text-center">
+      <p class="text-center mb-6">
         La experiencia que te brindamos en nuestro tren {name} es inigualable
       </p>
       <GaleriaTren galeria={tren.galeria!} name={tren.name} />
     </section>
   </section>
 </Layout>
-<style>
-  p {
-    margin-block: 1lh;
-  }
-</style>
