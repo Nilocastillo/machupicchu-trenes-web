@@ -1,0 +1,74 @@
+---
+import Arrow from "@/assets/svg/arrow.svg";
+import { SERVICIOS } from "@/const/servicios";
+import type { HorarioItem, Servicios } from "@/types/servicios";
+
+interface Props {
+  horarios: Servicios["horarios"]; // Usar la propiedad horarios directamente del tipo Servicios
+}
+const { horarios } = Astro.props;
+---
+
+<section class="flex flex-col mt-5 md:mt-8">
+  <h2 class="text-2xl font-medium my-4">Tren de ida: Cusco a Machu Picchu</h2>
+  {
+    horarios.ida.map((ida: HorarioItem) => (
+      <div class="flex flex-row justify-between items-start md:items-center p-5 md:p-9 bg-incarail/10 border-b-2 border-perurail/70 rounded-lg overflow-hidden">
+        <div class="flex flex-col text-start flex-1">
+          <p class="text-3xl md:text-5xl font-medium flex flex-col justify-center">
+            <span class="text-base text-lime-900 uppercase tracking-wider">
+              Salida
+            </span>
+            {ida.salida}
+          </p>
+          <p class="text-base font-medium text-gray-600">{ida.origen}</p>
+          <p class="text-base italic text-gray-500">{ida.tipo}</p>
+        </div>
+        <div>
+          <Arrow />
+        </div>
+        <div class="flex flex-col text-end flex-1">
+          <p class="text-3xl md:text-5xl font-medium flex flex-col justify-center">
+            <span class="text-base text-lime-900 uppercase tracking-wider">
+              Llegada
+            </span>
+            {ida.llegada}
+          </p>
+          <p class="text-base font-medium text-gray-600">{ida.destino}</p>
+        </div>
+      </div>
+    ))
+  }
+
+  <h2 class="text-2xl font-medium mt-10 mb-4">
+    Tren de retorno: Machu Picchu a Cusco
+  </h2>
+  {
+    horarios.retorno.map((retorno: HorarioItem) => (
+      <div class="flex flex-row justify-between items-start md:items-center p-5 md:p-9 bg-incarail/10 border-b-2 border-perurail/70 rounded-lg overflow-hidden">
+        <div class="flex flex-col text-start flex-1">
+          <p class="text-3xl md:text-5xl font-medium flex flex-col justify-center">
+            <span class="text-base text-lime-900 uppercase tracking-wider">
+              Salida
+            </span>
+            {retorno.salida}
+          </p>
+          <p class="text-base font-medium text-gray-600">{retorno.origen}</p>
+          <p class="text-base italic text-gray-500">{retorno.tipo}</p>
+        </div>
+        <div>
+          <Arrow />
+        </div>
+        <div class="flex flex-col text-end flex-1">
+          <p class="text-3xl md:text-5xl font-medium flex flex-col justify-center">
+            <span class="text-base text-lime-900 uppercase tracking-wider">
+              Llegada
+            </span>
+            {retorno.llegada}
+          </p>
+          <p class="text-base font-medium text-gray-600">{retorno.destino}</p>
+        </div>
+      </div>
+    ))
+  }
+</section>

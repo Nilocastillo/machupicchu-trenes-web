@@ -1,0 +1,89 @@
+---
+import { SERVICIOS } from "@/const/servicios";
+import Layout from "@/layouts/Layout.astro";
+import IncludeGrid from "@/components/IncludeGrid.astro";
+import HorarioTren from "@/components/HorarioTren.astro";
+import GaleriaTren from "@/components/Galeria.astro";
+
+const { id } = Astro.params; // Solo el id viene del parámetro de ruta
+const tren = SERVICIOS.find((tren) => tren.id === id);
+if (!tren) return Astro.redirect("/404");
+
+const { title, name, imagen, description } = tren;
+export const prerender = false;
+---
+
+<Layout>
+  <section
+    class="relative flex flex-col w-full max-w-6xl mx-auto pt-[86px] lg:pt-[118px] px-5 xl:px-0"
+  >
+    <header
+      class="relative flex flex-col items-center justify-center rounded-sm overflow-hidden gap-5"
+    >
+      <div class="py-4">
+        <imagen.logo
+          transition:name={`logoservices-${id}`}
+          src={imagen.logo}
+          alt={imagen.alt}
+          class="w-40 md:w-56 lg:w-64 fill-incarail"
+        />
+      </div>
+      <img
+        transition:name={`image-${id}`}
+        src={`/images/trenes/${id}.avif`}
+        class="aspect-[955/637] relative w-full h-96 brightness-75 object-cover object-center rounded-lg overflow-hidden"
+        alt={`servicio de tren a machupicchu en el tren ${name}`}
+        width="955"
+        height="637"
+        fetchpriority="low"
+      />
+    </header>
+
+    <div class="w-full flex flex-col gap-3 mt-10 md:mt-20">
+      <h1
+        class="text-3xl md:text-4xl lg:text-5xl uppercase text-center text-incarail tracking-[-2px]"
+      >
+        {title}
+      </h1>
+      <p>{description}</p>
+    </div>
+
+    <!--BLOQUE DE INCLUDES-->
+    <section class="mt-10 md:mt-24">
+      <h2
+        class="text-3xl lg:text-4xl font-medium tracking-[-2px] text-incarail"
+      >
+        Vive la experiencia en el tren {name}
+      </h2>
+      <IncludeGrid includes={tren.includes ?? []} />
+    </section>
+
+    <!--BLOQUE DE HORARIOS -->
+    <section class="mt-14 md:mt-24">
+      <h2
+        class="text-3xl lg:text-4xl font-medium tracking-[-2px] text-incarail"
+      >
+        Horarios de tren {name}
+      </h2>
+      <HorarioTren horarios={tren.horarios} />
+    </section>
+
+    <!--BLOQUE DE GALERIA  -->
+    <section class="mt-14 md:mt-24">
+      <h2
+        class="text-3xl lg:text-4xl font-medium tracking-[-2px] text-incarail text-center"
+      >
+        Conoce nuestra galeria
+      </h2>
+      <p class="text-center">
+        La experiencia que te brindamos en nuestro tren {name} es inigualable
+      </p>
+      <GaleriaTren galeria={tren.galeria!} name={tren.name} />
+    </section>
+  </section>
+</Layout>
+<style>
+  p {
+    margin-block: 1lh;
+  }
+</style>

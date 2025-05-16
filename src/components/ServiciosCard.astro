@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+
+import { SERVICIOS } from "@/const/servicios";
+
+const { id, name, imagen, styleclass } = Astro.props;
+---
+
+<a
+  class={`block relative overflow-hidden rounded-sm group h-[350px] w-auto ${styleclass}`}
+  href={`/tren/${id}`}
+  aria-label={`Tren ${name}`}
+>
+  <Image
+    transition:name={`image-${id}`}
+    src={`/images/trenes/${id}.avif`}
+    class="aspect-[955/637] h-full relative w-full saturate-60 object-cover transition group-hover:saturate-120 pointer-events-none"
+    alt={`servicio de tren a machupicchu en el tren ${name}`}
+    width="955"
+    height="637"
+    fetchpriority="low"
+  />
+  <div
+    class="flex justify-center items-end absolute inset-0 pb-5 pointer-events-none"
+  >
+    <imagen.logo
+      transition:name={`logoservices-${id}`}
+      class="w-56 h-auto group-hover:scale-105 transition duration-300 z-50"
+      fetchpriority="low"
+    />
+  </div>
+  <div
+    class="gradient absolute bottom-0 left-0 w-full h-[80%] pointer-events-none"
+  >
+  </div>
+</a>
+
+<style>
+  .premiumtrain .gradient {
+    background: linear-gradient(to top, rgba(153, 116, 4, 1), rgba(0, 0, 0, 0));
+  }
+  .incarailtrain .gradient {
+    background: linear-gradient(to top, rgba(5, 50, 32, 1), rgba(0, 0, 0, 0));
+  }
+  .perurailtrain .gradient {
+    background: linear-gradient(to top, rgba(0, 34, 79, 1), rgba(0, 0, 0, 0));
+  }
+  a {
+    animation: reveal both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 30%;
+  }
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+      translate: 0 100px;
+    }
+    50% {
+      opacity: 0.3;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+</style>

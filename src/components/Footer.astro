@@ -1,0 +1,49 @@
+---
+import { SERVICIOS } from "@/const/servicios";
+const leftRow = SERVICIOS.slice(0, 4);
+const rightRow = SERVICIOS.slice(4);
+
+import LogoMapi from "@/assets/machupicchutravel.svg";
+---
+
+<footer
+  class="bg-incarail/5 w-full max-w-6xl mx-auto mt-24 px-5 xl:px-0 grid items-center justify-center md:grid-cols-3 gap-10 md:justify-between p-12"
+>
+  <a href="/" class="flex items-center justify-center w-full h-full">
+    <LogoMapi class="fill-incarail w-auto h-24" />
+  </a>
+  <div>
+    <h3 class="text-lg font-semibold mb-4">Servicio de tren Incarail</h3>
+    <ul class="flex flex-col gap-2">
+      {
+        leftRow.map(({ id, name }) => (
+          <li>
+            <a
+              href={`/tren/${id}`}
+              class="hover:underline hover:text-incarail text-base text-gray-600"
+            >
+              {name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div>
+    <h3 class="text-lg font-semibold mb-4">Servicio de tren Perurail</h3>
+    <ul class="flex flex-col gap-2">
+      {
+        rightRow.map(({ id, name }) => (
+          <li>
+            <a
+              href={`/tren/${id}`}
+              class="hover:underline hover:text-incarail text-base text-gray-600"
+            >
+              {name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</footer>

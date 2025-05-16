@@ -1,0 +1,120 @@
+---
+export const faq = [
+  {
+    pregunta: "Donde comprar boletos de tren a Machu Picchu",
+    respuesta:
+      "Si buscas dónde comprar boletos de tren a Machu Pichu, consulta con nuestros agentes",
+  },
+  {
+    pregunta: "Donde se toma el tren a Machu Picchu",
+    respuesta:
+      "El tren a Machu Picchu se toma en la estación de Ollantaytambo, en el Valle Sagrado de los Incas, que queda aproximadamente a 2 horas de Cusco.",
+  },
+  {
+    pregunta: "Viaje en tren a Machu Picchu",
+    respuesta:
+      "Viajar en tren a Machu Picchu es una experiencia mística. Disfruta del increible paisaje del Valle Sagrado de los Incas, entre picos nevados e imponentes montañas a través de nuestras ventanas panorámicas.",
+  },
+  {
+    pregunta: "¿Cuál es el mejor tren para ir a Machu Picchu?",
+    respuesta: [
+      "Hay diferentes opciones de tren a Machu Picchu que puedes tomar, IncaRail cuenta con servicios como: ",
+      {
+        text: "The Voyager",
+        link: "/tren/the-voyager",
+      },
+      ", ",
+      {
+        text: "The 360",
+        link: "/tren/the-360",
+      },
+      ", ",
+      {
+        text: "The First Class",
+        link: "/tren/the-firstclass",
+      },
+      " y ",
+      {
+        text: "The Private",
+        link: "/tren/the-private",
+      },
+      ", PeruRail cuenta con los servicios de trenes como: ",
+      {
+        text: "Expedition",
+        link: "/tren/expedition",
+      },
+      ", ",
+      {
+        text: "Vistadome",
+        link: "/tren/vistadome",
+      },
+      ", ",
+      {
+        text: "Vistadome Observatory",
+        link: "/tren/vistadome-observatory",
+      },
+      " y ",
+      {
+        text: "Hiram Bingham",
+        link: "/tren/hiram-bingham",
+      },
+      ".",
+    ],
+  },
+  {
+    pregunta: "Tren a Machu Picchu: tarifas y precios",
+    respuesta:
+      "Los precios de los boletos de tren a Machu Picchu pueden variar de acuerdo a la experiencia que busques para tu viaje, Contamos con servicios que se adaptan a tus necesidades.",
+  },
+];
+---
+
+<section class="w-full max-w-6xl mx-auto mt-24 px-5 xl:px-0">
+  <h3 class="text-4xl font-medium text-center">Preguntas Frecuentes</h3>
+  <section class="grid gap-5 mt-10">
+    {
+      faq.map((item) => (
+        <details class="faq__items border-1 border-lime-600 p-5 rounded-sm cursor-pointer">
+          <summary class="faq__pregunta flex items-center">
+            <h4 class="font-medium">{item.pregunta}</h4>
+          </summary>
+          <article class="mt-4 pt-4 border-t-1 border-solid border-lime-600 ">
+            <p>
+              {Array.isArray(item.respuesta)
+                ? item.respuesta.map((fragment) => {
+                    return typeof fragment === "string" ? (
+                      fragment
+                    ) : (
+                      <a
+                        href={fragment.link}
+                        class="font-medium inline-block hover:text-lime-800 transition-colors"
+                      >
+                        {fragment.text}
+                      </a>
+                    );
+                  })
+                : item.respuesta}
+            </p>
+          </article>
+        </details>
+      ))
+    }
+  </section>
+</section>
+<style>
+  .faq__items {
+    --icon_question-url: url("../assets/svg/open.svg");
+  }
+  .faq__items[open] {
+    background-color: oklch(64.8% 0.2 131.684 / 0.3);
+    --icon_question-url: url("../assets/svg/close.svg");
+  }
+  .faq__pregunta::after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-image: var(--icon_question-url);
+    margin-left: auto;
+    transition: 0.3s;
+  }
+</style>

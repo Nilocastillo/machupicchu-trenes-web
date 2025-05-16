@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-incarail: oklch(0.28 0.058 161.37);
+  --color-perurail: oklch(0.26 0.0917 256.81);
+  --color-premium: oklch(0.58 0.1176 86.02);
+}
+body {
+  font-family: "Instrument Sans Variable", sans-serif;
+}
+
+@utility mask-fade-bottom {
+  mask-image: linear-gradient(to bottom, black 70%, transparent 95%);
+}
+@utility mask-fade-top {
+  mask-image: linear-gradient(to top, black 70%, transparent 95%);
+}

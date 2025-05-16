@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+---
+
+<section class="relative flex min-h-screen w-full">
+  <div class="mask-fade-bottom brightness-50 relative w-full">
+    <Image
+      src="/images/andean-hero.avif"
+      alt="Tren Andean Expedition "
+      class="w-full h-full object-cover object-center no-repeat"
+      width="1920"
+      height="1080"
+      fetchpriority="high"
+    />
+  </div>
+  <!--<video
+    autoplay
+    loop
+    muted
+    playsinline
+    id="main-video"
+    preload="metadata"
+    class="video cp-v h-full w-full object-cover object-top animate-duration-[2s] animate-ease-in-out"
+  >
+    <source src="/images/video-hero.webm" type="video/webm" />
+  </video> -->
+  <div class="absolute z-10 w-full h-full inset-0 mx-auto">
+    <div
+      class="relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center h-full text-white px-5 xl:px-0"
+    >
+      <h1
+        class="lg:text-6xl font-bold uppercase md:text-5xl text-4xl text-center tracking-[-2px]"
+      >
+        Tu aventura a Machu Picchu comienza en tren
+      </h1>
+      <p class="text-xl mt-8 max-w-4xl">
+        Emprende en un viaje espectacular a Machu Picchu con PeruRail e
+        IncaRail, disfruta de vistas panorámicas, cómodos asientos y servicios
+        de lujo mientras atraviesas los majestuosos Andes hacia una de las
+        maravillas del mundo.
+      </p>
+    </div>
+  </div>
+</section>

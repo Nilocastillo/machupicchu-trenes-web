@@ -1,0 +1,24 @@
+---
+import LiteYouTube from "@/components/LiteYoutube.astro";
+
+import AndeanExplorer from "@/assets/svg/servicios/andean-explorer.svg";
+
+const PRESENTATION_VIDEO_ID = "F-Zt8IjfUbw";
+---
+
+<section
+  class="mx-auto max-w-6xl pt-24 px-5 xl:px-0 bg-[url('/images/hero-bg.svg')] bg-contain bg-center bg-no-repeat"
+>
+  <div
+    title="Video promocional del tren Andean Explorer"
+    id="presentation"
+    class="mx-auto w-full max-w-4xl flex justify-center items-center flex-col"
+  >
+    <AndeanExplorer class="w-80 pb-5" fill="#000000" />
+    <LiteYouTube
+      videoId={PRESENTATION_VIDEO_ID}
+      title="Tren andean explorer - Perú"
+      backgroundImage="/images/presentation-video-cover.avif"
+    />
+  </div>
+</section>

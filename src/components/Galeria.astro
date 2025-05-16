@@ -1,0 +1,98 @@
+---
+interface Props {
+  galeria: string[];
+  name: string;
+}
+
+const { galeria, name } = Astro.props;
+---
+
+<style>
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+</style>
+
+<div class="grid md:grid-cols-3 gap-4">
+  {
+    galeria.map((src, index) => (
+      <div>
+        <img
+          src={src}
+          alt={`Imagen del tren ${name}`}
+          loading="lazy"
+          decoding="async"
+          class="rounded-lg shadow-md object-cover w-full h-48 cursor-pointer galeria-img"
+          data-dialog={`dialog-${index}`}
+        />
+
+        <dialog
+          id={`dialog-${index}`}
+          class="p-0 border-0 rounded-lg overflow-hidden mx-auto my-auto"
+        >
+          <div class="flex items-center justify-center bg-transparent">
+            <div class="relative">
+              <img
+                src={src}
+                loading="lazy"
+                decoding="async"
+                alt={`Servicio de tren ${name}`}
+                class="max-h-[80vh] w-auto shadow-lg"
+              />
+              <button
+                class="absolute top-2 right-2 text-incarail text-2xl rounded-full p-2 hover:bg-lime-200 hover:scale-110 transition-transform cerrar-dialogo border-1 border-incarail bg-lime-100"
+                data-dialog={`dialog-${index}`}
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        </dialog>
+      </div>
+    ))
+  }
+</div>
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const imgs = document.querySelectorAll(".galeria-img");
+    const botonesCerrar = document.querySelectorAll(".cerrar-dialogo");
+
+    imgs.forEach((img) => {
+      img.addEventListener("click", () => {
+        const id = img.getAttribute("data-dialog");
+        if (!id) return;
+
+        const dialog = document.getElementById(id);
+        if (dialog instanceof HTMLDialogElement) {
+          dialog.showModal();
+
+          // Cierra si se hace clic fuera del contenido
+          dialog.addEventListener("click", (event) => {
+            const rect = dialog.getBoundingClientRect();
+            const isInDialog =
+              event.clientX >= rect.left &&
+              event.clientX <= rect.right &&
+              event.clientY >= rect.top &&
+              event.clientY <= rect.bottom;
+
+            if (!isInDialog) {
+              dialog.close();
+            }
+          });
+        }
+      });
+    });
+
+    botonesCerrar.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-dialog");
+        if (!id) return;
+
+        const dialog = document.getElementById(id);
+        if (dialog instanceof HTMLDialogElement) {
+          dialog.close();
+        }
+      });
+    });
+  });
+</script>

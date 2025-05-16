@@ -1,0 +1,57 @@
+---
+import { SERVICIOS } from "@/const/servicios";
+interface IncludeItem {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  includes: IncludeItem[];
+}
+
+const { includes} = Astro.props;
+---
+<section class="grid sm:grid-cols-7 gap-2 mt-5 md:mt-8">
+  {
+    includes?.map((item, index) => {
+      const isFirstOrFourthItem = index % 4 === 0 || index % 4 === 3;
+      const colSpanClass = isFirstOrFourthItem
+        ? "sm:col-span-4"
+        : "sm:col-span-3";
+
+      return (
+        <article
+          class={`group rounded-lg p-[2px] bg-slate-100 hover:bg-gradient-to-br hover:from-perurail/70 hover:via-premium hover:to-incarail/70 transition-colors duration-200 ease-in-out; ${colSpanClass}`}
+        >
+          <div class="w-full h-full bg-white rounded-lg p-6">
+            <h3 class="text-2xl font-semibold">{item.title}</h3>
+            <p class="text-base text-black">{item.description}</p>
+          </div>
+        </article>
+      );
+    })
+  }
+</section>
+<style>
+  p {
+    margin-block: 1lh;
+  }
+
+  article {
+    animation: reveal both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 30%;
+  }
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+      translate: 0 100px;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+</style>

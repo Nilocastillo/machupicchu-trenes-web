@@ -1,0 +1,49 @@
+---
+import { SERVICIOS } from "@/const/servicios";
+import ServiciosCard from "@/components/ServiciosCard.astro";
+
+const leftRow = SERVICIOS.slice(0, 4);
+const rightRow = SERVICIOS.slice(4);
+
+import Incarail from "@/assets/svg/empresas/incarail.svg";
+import Perurail from "@/assets/svg/empresas/perurail.svg";
+---
+
+<section
+  class="relative w-full max-w-6xl mx-auto px-5 xl:px-0 grid md:grid-cols-2 gap-10 items-center bg-[url('/images/hero-bg.svg')] bg-contain bg-top bg-no-repeat -mt-40"
+>
+  <div class="mt-4 flex flex-col items-center justify-center w-full">
+    <header class="mb-10">
+      <Incarail class="mb-10" />
+    </header>
+    <section class="flex flex-col gap-y-3 w-full">
+      {
+        leftRow.map(({ id, name, imagen, styleclass }) => (
+          <ServiciosCard
+            id={id}
+            name={name}
+            imagen={imagen}
+            styleclass={styleclass}
+          />
+        ))
+      }
+    </section>
+  </div>
+  <div class="mt-4 flex flex-col items-center justify-center w-full">
+    <div class="mb-10">
+      <Perurail class="mb-10 w-96" />
+    </div>
+    <section class="flex flex-col gap-y-3 w-full">
+      {
+        rightRow.map(({ id, name, imagen, styleclass }) => (
+          <ServiciosCard
+            id={id}
+            name={name}
+            imagen={imagen}
+            styleclass={styleclass}
+          />
+        ))
+      }
+    </section>
+  </div>
+</section>

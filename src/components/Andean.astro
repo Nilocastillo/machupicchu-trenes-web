@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+---
+
+<section class="w-full max-w-6xl mx-auto mt-24 px-5 xl:px-0">
+  <h2
+    class="lg:text-6xl text-5xl uppercase font-semibold text-center tracking-[-3px] mb-12"
+  >
+    Explorador Andino
+  </h2>
+  <article class="grid justify-center items-center md:grid-cols-2 gap-10">
+    <div>
+      <h3 class="text-3xl uppercase font-medium tracking-[-1px] mb-5">
+        un viaje impresionante por una tierra marcada por la grandeza de la
+        historia
+      </h3>
+      <p class="font-normal text-base">
+        Viva momentos únicos con Belmond en Perú. Suba a bordo del Andean
+        Explorer, el primer tren cama de lujo de Sudamérica. Recorre las
+        llanuras andinas desde Cusco hasta Arequipa, donde visitará maravillas
+        naturales como el lago Titicaca.
+      </p>
+      <p class="mt-3 font-normal text-base mb-10">
+        Luego, continúe su viaje en Las Casitas , rodeado de los fascinantes
+        paisajes del Cañón del Colca. Nuestro refugio ofrece la escapada andina
+        definitiva, donde podrá maravillarse con el icónico vuelo del cóndor.
+      </p>
+      <a
+        aria-label="Ver más información sobre el tren Andean Explorer de PeruRail"
+        href="/tren/andean-explorer"
+        class="block text-center rounded-full sm:text-base py-4 px-20 border-2 md:text-xl font-medium border-lime-600 hover:text-white transition-color duration-300 ease-in-out hover:bg-lime-800 hover:border-transparent uppercase"
+        >Ver servicio de tren</a
+      >
+    </div>
+    <div
+      class="relative w-full h-full max-h-[500px] overflow-hidden rounded-sm"
+    >
+      <Image
+        class="relative z-0 object-cover h-full w-full object-center"
+        src="/images/trenes/andean-explorer.avif"
+        alt="tren explorador andino"
+        width="955"
+        height="1194"
+        fetchpriority="low"
+      />
+    </div>
+  </article>
+</section>
